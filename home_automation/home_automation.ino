@@ -4,6 +4,14 @@
  * Declare a button object [page id:0,component id:1, component name: "b0"]. 
  */
 NexText t0 = NexText(0, 2, "t0");
+NexText t01 = NexText(5, 3, "t0");
+NexText t1 = NexText(5, 4, "t1");
+NexText t2 = NexText(5, 6, "t2");
+NexText t3 = NexText(5, 8, "t3");
+NexText t4 = NexText(5, 10, "t4");
+NexText t5 = NexText(5, 12, "t5");
+NexText t6 = NexText(5, 14, "t6");
+NexText t7 = NexText(5, 16, "t7");
 
 NexButton b0 = NexButton(1, 2, "b0");
 NexButton b1 = NexButton(1, 3, "b1");
@@ -27,7 +35,7 @@ NexButton b15 = NexButton(1, 17, "b15");
 NexPage page2    = NexPage(2, 0, "page2");
 NexPage page3    = NexPage(3, 0, "page3");
 
-char buffer[100] = {0};
+char buffer[64] = {0};
 char pwdbuff[5];
 int key_pressed_count=0;
 int isPwdSShow=0;
@@ -53,6 +61,14 @@ NexTouch *nex_listen_list[] =
     &b14,
     &b15,
     &t0,
+    &t01,
+    &t1,
+    &t2,
+    &t3,
+    &t4,
+    &t5,
+    &t6,
+    &t7,
 //  &tm0,
     NULL
 };
@@ -278,6 +294,103 @@ void t0PopCallback(void *ptr)
 //    page3.show();
 }
 
+void t01PopCallback(void *ptr)
+{
+  t01.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(1, HIGH); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(1, LOW); 
+  }
+}
+void t1PopCallback(void *ptr)
+{
+  t1.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(2, LOW);       
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(2, HIGH); 
+  }
+}
+void t2PopCallback(void *ptr)
+{
+  t2.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(3, LOW); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(3, HIGH); 
+  }
+}
+void t3PopCallback(void *ptr)
+{
+  t3.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(4, LOW); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(4, HIGH); 
+  }
+}
+void t4PopCallback(void *ptr)
+{
+  t4.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(5, LOW); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(5, HIGH); 
+  }
+}
+void t5PopCallback(void *ptr)
+{
+  t5.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(6, LOW); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(6, HIGH); 
+  }
+}
+void t6PopCallback(void *ptr)
+{
+  t6.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(7, LOW); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(7, HIGH); 
+  }
+}
+void t7PopCallback(void *ptr)
+{
+  t7.getText(buffer, sizeof(buffer));
+  if((buffer[0]=='O') && (buffer[1]=='F') && (buffer[2]=='F'))
+  {
+    digitalWrite(8, LOW); 
+  }
+  else if((buffer[0]=='O') && (buffer[1]=='N'))
+  {
+    digitalWrite(8, HIGH); 
+  }
+}
+
 void setup(void)
 {    
     /* Set the baudrate which is for debug and communicate with Nextion screen. */
@@ -304,7 +417,24 @@ void setup(void)
   page2.attachPop(page2PopCallback);
   page3.attachPop(page3PopCallback);
   t0.attachPop(t0PopCallback);
+  t01.attachPop(t01PopCallback);
+  t1.attachPop(t1PopCallback);
+  t2.attachPop(t2PopCallback);
+  t3.attachPop(t3PopCallback);
+  t4.attachPop(t4PopCallback);
+  t5.attachPop(t5PopCallback);
+  t6.attachPop(t6PopCallback);
+  t7.attachPop(t7PopCallback);
 //    dbSerialPrintln("setup done"); 
+
+/*  pinMode(1, OUTPUT);  
+  pinMode(2, OUTPUT);  
+  pinMode(3, OUTPUT);  
+  pinMode(4, OUTPUT);  
+  pinMode(5, OUTPUT);  
+  pinMode(6, OUTPUT);  
+  pinMode(7, OUTPUT);  
+  pinMode(8, OUTPUT);  */
 }
 
 void loop(void)
