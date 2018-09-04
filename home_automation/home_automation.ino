@@ -1,6 +1,7 @@
 #include "Nextion.h"
 
 /*
+*
  * Declare a button object [page id:0,component id:1, component name: "b0"]. 
  */
 NexText t0 = NexText(0, 2, "t0");
